@@ -5,9 +5,9 @@ POST http://localhost:3000/transactions
 Content-Type: application/json
 
 {
-  "name":"Maria Neusa de Aparecida",
-  "cpf": "97905796671",
-  "state": "Sao Paulo",
+  "name": "Maria Neusa de Aparecida",
+  "cpf": "00249908255",
+  "state": "São Paulo",
   "value": 1234
 }
 
@@ -24,13 +24,13 @@ Content-Type: application/json
 {
   "cpf": {
     "length": 14,
-    "align": "right",
-    "padding": "zeroes"
+    "align": "left",
+    "padding": "spaces"
   },
   "value": {
     "length": 8,
-    "align": "right",
-    "padding": "zeroes"
+    "align": "left",
+    "padding": "spaces"
   },
   "state": {
     "length": 14,

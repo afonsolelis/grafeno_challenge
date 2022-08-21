@@ -31,6 +31,6 @@ class TransactionsController < ApplicationController
     end
 
     def transaction_params
-      params.require(:transaction).permit(:cpf, :state, :value)
+      params.require(:transaction).permit(:name, :cpf, :state, :value)
     end
 end
