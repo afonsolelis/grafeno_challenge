@@ -1,0 +1,61 @@
+inherit_from:
+  - .rubocop_rspec_base.yml
+  - .rubocop_todo.yml
+
+AllCops:
+  TargetRubyVersion: 2.5
+  NewCops: disable
+  Exclude:
+    # Templates are really ERB which Rubocop does not parse
+    - bin/**/*
+    - bundle/**/*
+    - lib/generators/rspec/*/templates/**/*
+    - tmp/**/*
+
+# Over time we'd like to get this down, but this is what we're at now.
+Metrics/CyclomaticComplexity:
+  Max: 10 # default: 6
+
+# Over time we'd like to get this down, but this is what we're at now.
+Layout/LineLength:
+  Max: 186 # default: 80
+
+# Over time we'd like to get this down, but this is what we're at now.
+Metrics/MethodLength:
+  Max: 43 # default: 10
+
+Bundler/DuplicatedGem:
+  Enabled: false
+
+Gemspec/RequiredRubyVersion:
+  # Rubocop checks that the target ruby version matches the gemspec version
+  # but doesnt have a 2.2 option
+  Enabled: false
+
+Metrics/BlockLength:
+  Exclude:
+    - Rakefile
+    - example_app_generator/generate_app.rb
+    - example_app_generator/spec/**/*
+    - lib/rspec/rails/configuration.rb
+    - lib/rspec/rails/example/system_example_group.rb
+    - lib/rspec/rails/tasks/rspec.rake
+    - rspec-rails.gemspec
+    - spec/**/*
+
+# Offense count: 3
+# Configuration parameters: CountComments, CountAsOne.
+Metrics/ModuleLength:
+  Exclude:
+    - spec/**/*
+
+# Override the shared base defaults that are in place for 1.8.7 support
+
+Layout/DotPosition:
+  EnforcedStyle: leading
+
+Style/HashSyntax:
+  EnforcedStyle: ruby19
+
+Style/Lambda:
+  Enabled: true
