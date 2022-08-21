@@ -1,0 +1,40 @@
+GET http://localhost:3000/
+
+###
+POST http://localhost:3000/transactions
+Content-Type: application/json
+
+{
+  "name":"Maria Neusa de Aparecida",
+  "cpf": "97905796671",
+  "state": "Sao Paulo",
+  "value": 1234
+}
+
+###
+GET http://localhost:3000/transactions
+
+###
+GET http://localhost:3000/transactions/2
+
+###
+GET http://localhost:3000/print_with_guidelines
+Content-Type: application/json
+
+{
+  "cpf": {
+    "length": 14,
+    "align": "right",
+    "padding": "zeroes"
+  },
+  "value": {
+    "length": 8,
+    "align": "right",
+    "padding": "zeroes"
+  },
+  "state": {
+    "length": 14,
+    "align": "left",
+    "padding": "spaces"
+  }
+}
